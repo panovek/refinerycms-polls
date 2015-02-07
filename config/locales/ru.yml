@@ -1,0 +1,44 @@
+ru:
+  refinery:
+    plugins:
+      polls:
+        title: Опросы
+    polls:
+      admin:
+        questions:
+          actions:
+            create_new: Создать новый опрос
+            reorder: Сортировать опросы
+            reorder_done: Заокнчить сортировку
+          records:
+            title: Опросы
+            sorry_no_results: Ничего не найдено
+            no_items_yet: Пока нет опросов. Создайте новый, кликнув по ссылке "Создать новый опрос"
+          question:
+            view_live_html: Посмотреть опрос на сайте <br/><em>(в новом окне)</em>
+            edit: Редактировать опрос
+            delete: Удалить опрос
+            manage_answers: Ответы опроса
+        answers:
+          actions:
+            create_new: Добавить ответ
+            reorder: Сортировать ответы
+            reorder_done: Закончить сортировку
+          records:
+            title: Ответы
+            sorry_no_results: Ничего не найдено
+            no_items_yet: Нет ответов. Создайте новый.
+          answer:
+            view_live_html: Смотреть ответ на сайте <br/><em>(в новом окне)</em>
+            edit: Редактировать ответ
+            delete: Удалить ответ
+      questions:
+        show:
+          other: Другие вопросы
+  activerecord:
+    attributes:
+      'refinery/polls/question':
+        title: Заголовок
+        start_date: Дата начала
+        end_date: Дата окончания
+        position: Позиция

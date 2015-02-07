@@ -1,0 +1,14 @@
+<%= form_for :question,
+           :url => refinery.submit_polls_question_path(question),
+           :remote => true,
+           :html => {:id => "reinerycms-poll-#{question.slug}"} do |f| %>
+  <p>
+      <% question.answers.each do |answer| %>
+        <%= radio_button_tag("answer_id", answer.id, false, id: answer.dom_id) %>
+        <%= answer.title %>
+      <% end %>
+  </p>
+  <p>
+    <%= f.submit 'отправить ответ', class: 'buttongold' %>
+  <p>
+<% end %>
