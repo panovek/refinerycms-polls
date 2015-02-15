@@ -8,6 +8,13 @@ module Refinery
         before_filter :find_answer, :only => [:edit, :update, :destroy]
         
         def index
+          if params[:search].present?
+            @answers = Answer.where('LOWER(title) ILIKE ?', "%#{params[:search].downcase}%")
+          else
+            @answers = Answer.all
+          end
+          @answers = @answers.order('created_at desc')
+
           paginate_all_answers
         end
 
@@ -60,7 +67,7 @@ module Refinery
         end
 
         def paginate_all_answers
-           @answers = ::Refinery::Polls::Answer.where(:question_id => @question.id).paginate(:page => params[:page]) if Refinery::Polls::Admin::QuestionsController.pageable?
+           @answers = @answers.paginate(:page => params[:page]) if Refinery::Polls::Admin::QuestionsController.pageable?
         end
       end
     end
